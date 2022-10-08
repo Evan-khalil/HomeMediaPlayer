@@ -1,0 +1,43 @@
+﻿<Window x:Class="Home_Media_Player.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Home_Media_Player"
+        xmlns:self="clr-namespace:BussinessLayer;assembly=BussinessLayer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="709.2" Width="844.8">
+
+    <Grid>
+        <ListBox x:Name="AlbumListBox" HorizontalAlignment="Left" Height="181" Margin="5,24,0,0" VerticalAlignment="Top" Width="131" SelectionChanged="OnSelectionChanged"/>
+        <TextBox x:Name="AlbumTextBox" HorizontalAlignment="Left" ToolTipService.ToolTip="Add a new album here" Height="21" Margin="6,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" TextChanged="OnAlbumTextBoxTextChanged"/>
+        <Button x:Name="AlbumBtn" Content="Add Album" HorizontalAlignment="Left" ToolTip="Click to add a new album" Margin="60,205,0,0" VerticalAlignment="Top" Width="76" Height="21" Click="AddAlbum" IsEnabled="False"/>
+        <DataGrid x:Name="FilesDataGrid" HorizontalAlignment="Left" Height="182" Margin="6,487,0,0" VerticalAlignment="Top" Width="822"/>
+        <Button x:Name="FilesBtn" Content="Import files" HorizontalAlignment="Left" ToolTip="Click to import files" Margin="583,463,0,0" VerticalAlignment="Top" Width="85" Click="AddFiles" Height="19"/>
+        <Button x:Name="PlaylistBtn" Content="Add  Playlist" HorizontalAlignment="Left" ToolTip="Click to add a new playlist" Margin="220,465,0,0" VerticalAlignment="Top" Width="80" Height="22" Click="AddPlaylist" IsEnabled="False"/>
+        <TextBox x:Name="playlistTextBox" HorizontalAlignment="Left" Height="22" Margin="141,465,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" ToolTipService.ToolTip="Add your playlists name here" IsEnabled="False" TextChanged="OnPlaylistTextBoxTextChanged"/>
+
+        <DataGrid x:Name="FilesDataGrid2" HorizontalAlignment="Left" Height="108" Margin="236,332,0,0" VerticalAlignment="Top" Width="602" CanUserAddRows="False" IsReadOnly="True" SelectionChanged="OnFilesSelectionChanged"/>
+        <TextBox x:Name="IntervalTextBox" ToolTipService.ToolTip="Add your interval here" HorizontalAlignment="Left" Height="20" Margin="141,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="27" IsEnabled="true"/>
+        <MediaElement x:Name="video" HorizontalAlignment="Left" Height="300" Margin="236,10,0,0" VerticalAlignment="Top" Width="602" Visibility="Visible"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="300" Margin="236,10,0,0" VerticalAlignment="Top" Width="602" Visibility="Visible"/>
+        <TextBlock x:Name="DescriptionTextBlock" HorizontalAlignment="Left" Margin="236,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="602"/>
+        <Button x:Name="PlaySlideShowBtn" Content="►" HorizontalAlignment="Left" ToolTip="Click to play your slideshow" Margin="141,292,0,0" VerticalAlignment="Top" Width="27" Height="20" Click="PlaySlideShow" IsEnabled="False"/>
+        <Button x:Name="DownBtn" Content="▼" HorizontalAlignment="Left" ToolTip="Clck to move file down" Margin="140,354,0,0" VerticalAlignment="Top" Width="28" Height="20" Click="MoveFileDown" IsEnabled="False"/>
+        <Button x:Name="UpBtn" Content="▲" HorizontalAlignment="Left" ToolTip="Click to move file up" Margin="140,332,0,0" VerticalAlignment="Top" Width="28" Height="20" Click="MoveFileUp" IsEnabled="False"/>
+        <Button x:Name="RemoveBtn" Content="-" HorizontalAlignment="Left" ToolTipService.ToolTip="Click to remove file" Margin="140,374,0,0" VerticalAlignment="Top" Width="28" Click="RemoveFile" Height="24" IsEnabled="False"/>
+        <TextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" ToolTipService.ToolTip="Write your description here" Height="22" Margin="140,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" IsEnabled="False"/>
+        <Button x:Name="DescriptionBtn" Content="Add Description" ToolTipService.ToolTip="Click to add your description" HorizontalAlignment="Left" Margin="140,398,0,0" VerticalAlignment="Top" Width="91" Click="AddDescription" Height="20" IsEnabled="False"/>
+        <Button x:Name="StopBtn" Content="⏹" HorizontalAlignment="Left" ToolTip="Click to stop your slideshow" Margin="141,312,0,0" VerticalAlignment="Top" Width="27" Click="StopSlideShow" Height="19" IsEnabled="False"/>
+        <Label Content="Interval" HorizontalAlignment="Left" Margin="168,267,0,0" VerticalAlignment="Top" Height="25"/>
+        <Label Content="Play" HorizontalAlignment="Left" Margin="168,288,0,0" VerticalAlignment="Top" Height="24" Width="54"/>
+        <Label Content="Stop" HorizontalAlignment="Left" Margin="168,308,0,0" VerticalAlignment="Top" Height="24" Width="54"/>
+        <Label Content="Down" HorizontalAlignment="Left" Margin="173,352,0,0" VerticalAlignment="Top" Height="24" Width="45"/>
+        <Label Content="Up" HorizontalAlignment="Left" Margin="173,328,0,0" VerticalAlignment="Top" Height="24" Width="33"/>
+        <Label Content="Remove" HorizontalAlignment="Left" Margin="173,374,0,0" VerticalAlignment="Top" Height="24" Width="49"/>
+        <Label Content="Albums" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="54"/>
+        <Button x:Name="AddFileToSelectedPlaylistBtn" Content="Add files to selected playlist" HorizontalAlignment="Left" Margin="673,463,0,0" VerticalAlignment="Top" Width="155" Height="19" Click="AddFileToSelectedPlaylist" ToolTipService.ToolTip="Select an playlist from the list and click to add the files sorted down to the playlist" IsEnabled="False"/>
+        <ListBox Name="PlaylistListBox" HorizontalAlignment="Left" Height="250" Margin="6,232,0,0" VerticalAlignment="Top" Width="129" SelectionChanged="OnPlaylistSelectionChanged"/>
+
+    </Grid>
+</Window>
